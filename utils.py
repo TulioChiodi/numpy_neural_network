@@ -76,7 +76,7 @@ def test_dataset_setup():
 
     assert framerate_list.count(framerate_list[0]) == len(framerate_list), f'Existem arquivos com framerate diferentes de {framerate_list[0]}'
     assert file_length_seconds.count(file_length_seconds[0]) == len(file_length_seconds), f'Existem arquivos com tamanho diferente de {file_length_seconds[0]}'
-    print(f'------\nTESTING:\nSplitted dataset:\n'
+    print(f'------\nSplitted dataset:\n'
         f'framerate: {framerate_list[0]}Hz (all files has the same framerate)\n'
         f'File length (seconds): {file_length_seconds[0]}s (all files has the same length)\n'
         f'Total dataset length (seconds): {sum(file_length_seconds)}s\n')
@@ -153,7 +153,7 @@ def setup_dataset(csv_path='instruments.csv', dataset_path='dataset', splitted_d
     zero_padding(file_list=splitted_file_list, chunk_length=chunk_length)
     resampling(file_list=splitted_file_list, sr=sr)
     test_dataset_setup()
-    print('Your dataset is ready! :D\n------\nOutput:\nFile name list(numpy.string_)\nLabel list (boolean)\nLabel Numpy xxx  \n------')
+    print('Your dataset is ready! :D')
     filename_list, np_filename_list =  get_filename_list(splitted_dataset_path) 
     bool_label_list, _ = get_label_list(csv_path, filename_list)
     one_hot_labels = get_one_hot()
