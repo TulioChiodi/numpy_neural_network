@@ -174,6 +174,8 @@ def read_hdf5():
     name_lst = [file.decode("utf-8") for file in name_lst_enc]
     one_hot_lst = [file.decode("utf-8") for file in one_hot_lst_enc]
     sample_rate, shape = etc.tolist()
-    return  name_lst, label_lst, one_hot_lst, spec_flatten_lst, sample_rate, shape
+    wav_lst = get_wav_list()
+    signal_list = get_signal_list(wav_lst)
+    return  name_lst, label_lst, one_hot_lst, spec_flatten_lst, sample_rate, shape, signal_list
 
 
